@@ -29,7 +29,7 @@ const AddCategory = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/categories/add",
+        "https://revist-backend.onrender.com/api/categories/add",
         formData
       );
       setMessage(response.data.message);

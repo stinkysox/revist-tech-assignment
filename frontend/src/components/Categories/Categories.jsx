@@ -20,7 +20,7 @@ const Categories = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:4000/api/get-categories"
+          "https://revist-backend.onrender.com/api/get-categories"
         );
         const categoriesData = Array.isArray(response.data.categories)
           ? response.data.categories
@@ -58,7 +58,7 @@ const Categories = () => {
   const handleSave = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:4000/api/edit-category/${editCategory._id}`,
+        `https://revist-backend.onrender.com/api/edit-category/${editCategory._id}`,
         editCategory
       );
 

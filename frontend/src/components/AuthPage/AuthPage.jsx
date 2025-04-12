@@ -21,8 +21,8 @@ const AuthPage = () => {
     e.preventDefault();
 
     const url = isLogin
-      ? "http://localhost:4000/api/users/login"
-      : "http://localhost:4000/api/users/register";
+      ? "https://revist-backend.onrender.com/api/users/login"
+      : "https://revist-backend.onrender.com/api/users/register";
 
     const body = {
       username: isLogin ? undefined : username,

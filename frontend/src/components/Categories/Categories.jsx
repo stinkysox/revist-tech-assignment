@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { motion } from "framer-motion";
 import "./Categories.css";
 
 const Categories = () => {
@@ -94,7 +95,12 @@ const Categories = () => {
   }
 
   return (
-    <div className="categories">
+    <motion.div
+      className="categories"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="categories-top-container">
         <h2>Categories</h2>
         <button
@@ -106,7 +112,12 @@ const Categories = () => {
       </div>
 
       {editMode ? (
-        <div className="edit-category-form">
+        <motion.div
+          className="edit-category-form"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
           <h3>Edit Category</h3>
           <input
             type="text"
@@ -131,11 +142,22 @@ const Categories = () => {
           />
           <button onClick={handleSave}>Save</button>
           <button onClick={handleCancel}>Cancel</button>
-        </div>
+        </motion.div>
       ) : (
-        <div className="categories-grid">
-          {categories.map((category) => (
-            <div key={category._id} className="category-card">
+        <motion.div
+          className="categories-grid"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          {categories.map((category, index) => (
+            <motion.div
+              key={category._id}
+              className="category-card"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.05, duration: 0.4 }}
+            >
               <div className="category-image">
                 <img src={category.imageUrl} alt={category.name} />
                 <button
@@ -149,11 +171,11 @@ const Categories = () => {
                 <h4>{category.name}</h4>
                 <p>{category.items} items</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

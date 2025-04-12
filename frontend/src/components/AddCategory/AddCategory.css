@@ -34,3 +34,23 @@
   margin-top: 1rem;
   font-weight: bold;
 }
+
+@media (max-width: 468px) {
+  .add-category-container {
+    padding: 1rem;
+  }
+
+  .category-form input {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .category-form button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .message {
+    font-size: 12px;
+  }
+}

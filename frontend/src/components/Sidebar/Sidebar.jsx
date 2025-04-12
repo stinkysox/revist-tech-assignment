@@ -14,6 +14,7 @@ import {
   FaClipboardList,
   FaFolderOpen,
 } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Sidebar = () => {
   const [active, setActive] = useState("Categories");
@@ -39,20 +40,28 @@ const Sidebar = () => {
     { label: "Global Settings", icon: <FaCog /> },
   ];
 
-  const renderItem = (item) => (
-    <div
+  const renderItem = (item, index) => (
+    <motion.div
       key={item.label}
       className={`sidebar-item ${active === item.label ? "active" : ""}`}
       onClick={() => setActive(item.label)}
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: index * 0.05, duration: 0.3 }}
     >
       <span className="icon">{item.icon}</span>
       <span className="label">{item.label}</span>
       {item.badge && <span className="badge">{item.badge}</span>}
-    </div>
+    </motion.div>
   );
 
   return (
-    <div className="sidebar">
+    <motion.div
+      className="sidebar"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="section">{navItems.map(renderItem)}</div>
 
       <p className="section-title">Other Information</p>
@@ -60,7 +69,7 @@ const Sidebar = () => {
 
       <p className="section-title">Settings</p>
       <div className="section">{settings.map(renderItem)}</div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -109,3 +109,18 @@
 .edit-category-form button:last-of-type:hover {
   background-color: darkred;
 }
+
+@media (max-width: 468px) {
+  .categories-top-container h2 {
+    font-size: 12px;
+  }
+
+  .categories-top-container button {
+    font-size: 12px;
+  }
+
+  .category-card {
+    width: 150px;
+    height: 250px;
+  }
+}

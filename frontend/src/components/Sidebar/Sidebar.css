@@ -55,3 +55,29 @@
   border-radius: 12px;
   margin-left: auto;
 }
+
+@media (max-width: 468px) {
+  .sidebar {
+    width: 50%;
+  }
+  .section-title {
+    font-size: 10px;
+  }
+
+  .sidebar-item {
+    padding: 8px 12px;
+  }
+
+  .sidebar-item .icon {
+    font-size: 14px;
+  }
+
+  .sidebar-item .badge {
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+
+  .sidebar-item.active {
+    font-weight: 500;
+  }
+}
